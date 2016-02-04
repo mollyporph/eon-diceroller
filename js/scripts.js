@@ -11,9 +11,17 @@ socket.on('connect', function () {
   });
 var joinButton = document.getElementById("joinButton");
 joinButton.addEventListener("click",function(e){
-  username = document.getElementById("username").value;
-  room = document.getElementById("room").value;
+  username_element = document.getElementById("username");
+  room_element = document.getElementById("room");
+  username = username_element.value;
+  room = room_element.value;
   socket.emit("join", {username: username, room: room});
+
+  //Hide everything that has to do with room after you've joined
+  username_element.style.visibility='hidden';
+  room_element.style.visibility='hidden';
+  document.getElementById("joinButton").style.visibility='hidden';
+
 });
 var diceInput = document.getElementById("diceinput");
 diceInput.addEventListener("keydown", function(e){
@@ -30,5 +38,12 @@ function showAndLogDiceRoll(diceresult){
   var ul = document.getElementById("rollresult");
    var li = document.createElement("li");
    li.appendChild(document.createTextNode(resultText));
-   ul.appendChild(li);
+
+   //Last roll should be first in the list
+   ul.insertBefore(li,ul.firstChild);
+   var ul = document.getElementById('rollresult');
+
+   //Make sure that we only show the 10 newest rolls
+if (ul.childNodes.length > 10)
+  ul.lastChild.parentNode.removeChild(ul.lastChild);
 }
