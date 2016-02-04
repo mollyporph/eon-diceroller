@@ -14,11 +14,16 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
-
 <body>
-<input id="diceinput" type="text" placeholder="Eon IV roll, e.g ob3t6+3, 2t10, 5t6+2" class="diceinput">
-<div id="rollresult">
+<div>
+  <input id="username" type="text" placeholder="username..">
+  <input id="room" type="text" placeholder="room..">
+  <input id="joinButton" type="button" value="Join room!">
 </div>
+<input id="diceinput" type="text" placeholder="Eon IV roll, e.g ob3t6+3, 2t10, 5t6+2" class="diceinput">
+<ul id="rollresult">
+</ul>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="js/scripts.js"></script>
 </body>
 </html>
