@@ -21,18 +21,9 @@ diceInput.addEventListener("keydown", function(e){
         sendDiceRoll();
     }
 },false);
-var r = new XMLHttpRequest();
-r.onreadystatechange = function () {
-  if (r.readyState != 4 || r.status != 200) return;
-  var res = JSON.parse(r.responseText);
-  showAndLogDiceRoll(res);
-};
 function sendDiceRoll(){
   var rollText = diceInput.value;
   socket.emit("dicerollrequest", {username:username,room:room,roll:rollText });
-  //todo: validate rollText
-  //r.open("get", "/roll/"+rollText, true);
-  //r.send();
 }
 function showAndLogDiceRoll(diceresult){
   var resultText = diceresult.username+" rolled " + diceresult.dicesum + " (" + diceresult.dices.join() + "). With a modifier of " +diceresult.modifier + ". and got "+diceresult.obcount+" OB rolls";
