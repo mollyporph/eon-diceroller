@@ -11,7 +11,10 @@ class TestDiceRoller(unittest.TestCase):
   def test_solveob_six_returns_more_dices(self):
       dices = [1,2,6]
       (newDices,obcount) = diceroller.solve_ob(6,dices)
-      self.assertNotEqual(len(dices),len(newDices))
+      if(len([1,2,6]) == len(newDices)):
+          print("Input: %A",dices)
+          print("Output: %A",newDices)
+      self.assertNotEqual(len([1,2,6]),len(newDices))
   def test_obthrow_does_not_return_dice_above_t(self):
       diceAmount = 1
       results = [val for sublist in [diceroller.roll_obthrow(diceAmount)[0] for _ in range(1,100)] for val in sublist]
