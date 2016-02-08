@@ -14,12 +14,12 @@ class TestDiceRoller(unittest.TestCase):
       self.assertNotEqual(len(dices),len(newDices))
   def test_obthrow_does_not_return_dice_above_t(self):
       diceAmount = 1
-      results = [val for sublist in [diceroller.roll_obthrow(diceAmount)[0] for _ in xrange(1,100)] for val in sublist]
+      results = [val for sublist in [diceroller.roll_obthrow(diceAmount)[0] for _ in range(1,100)] for val in sublist]
       self.assertTrue(all(x <= 6 for x in results))
   def test_normalthrow_does_not_Return_dice_above_t(self):
       diceAmount = 1
       t = 10
-      results = [val for sublist in [diceroller.roll_normalthrow(diceAmount,t)[0] for _ in xrange(1,100)] for val in sublist]
+      results = [val for sublist in [diceroller.roll_normalthrow(diceAmount,t)[0] for _ in range(1,100)] for val in sublist]
       self.assertTrue(all(x <= t for x in results))
 if __name__ == '__main__':
     unittest.main()
