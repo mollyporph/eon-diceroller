@@ -3,6 +3,8 @@
 var username ="";
 var room ="";
 var socket = io();
+  var rollpage = document.getElementById("rollpage");
+  rollpage.style.visibility='hidden';
 socket.on('connect', function () {
     socket.on('dicerollresponse', function(msg){
     console.log(msg);
@@ -11,16 +13,17 @@ socket.on('connect', function () {
   });
 var joinButton = document.getElementById("joinButton");
 joinButton.addEventListener("click",function(e){
-  username_element = document.getElementById("username");
-  room_element = document.getElementById("room");
+  var loginpage = document.getElementById("loginpage");
+  var rollpage = document.getElementById("rollpage");
+  var username_element = document.getElementById("username");
+  var room_element = document.getElementById("room")
   username = username_element.value;
   room = room_element.value;
   socket.emit("join", {username: username, room: room});
 
   //Hide everything that has to do with room after you've joined
-  username_element.style.visibility='hidden';
-  room_element.style.visibility='hidden';
-  document.getElementById("joinButton").style.visibility='hidden';
+  loginpage.style.visibility='hidden';
+  rollpage.style.visibility='visible';
 
 });
 var diceInput = document.getElementById("diceinput");
@@ -45,5 +48,5 @@ function showAndLogDiceRoll(diceresult){
 
    //Make sure that we only show the 10 newest rolls
 if (ul.childNodes.length > 10)
-  ul.lastChild.parentNode.removeChild(ul.lastChild);
+  ul.removeChild(ul.lastChild);
 }

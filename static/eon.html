@@ -7,23 +7,48 @@
   <title>Eon IV Dice roller</title>
   <meta name="description" content="Eon IV Dice roller">
   <meta name="author" content="MollyPorph">
-
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 <body>
-<div>
-  <input id="username" type="text" placeholder="username..">
-  <input id="room" type="text" placeholder="room..">
-  <input id="joinButton" type="button" value="Join room!">
+    <div id="loginpage" class="splash-container">
+    <div class="splash">
+        <p class="splash-subhead">
+            Welcome to Eon IV Diceroller!
+           
+        </p>
+         <p>
+                <small>Type in a username and a preferred room</small>
+           </p>
+        <div clas="splash-head">
+            <form class="pure-form">
+            <fieldset class="pure-group">
+            <input id="username" type="text" placeholder="username.." class="pure-input-1-2 input-center">
+            <input id="room" type="text" placeholder="room.." class="pure-input-1-2 input-center">
+            </fieldset>
+            </form>
+        </div>
+        <p>
+            <button  id="joinButton" type="button" class="pure-button pure-button-primary">JOIN ROOM</button>
+        </p>
+    </div>
 </div>
-<input id="diceinput" type="text" placeholder="Eon IV roll, e.g ob3t6+3, 2t10, 5t6+2" class="diceinput">
-<ul id="rollresult">
+<div id="rollpage" class="splash-container">
+    <div class="splash">
+        <p class="splash-subhead">
+            Type in a roll and hit enter
+            </p>
+<input id="diceinput" type="text" placeholder="Eon IV roll, e.g ob3t6+3, 2t10, 5t6+2" class="diceinput pure-input-1-1">
+<ul id="rollresult" class="rollresult">
 </ul>
+</div>
+</div>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 <script src="js/scripts.js"></script>
+
 </body>
 </html>
