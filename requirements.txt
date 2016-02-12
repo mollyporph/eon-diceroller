@@ -1,5 +1,5 @@
 docutils==0.12
-eventlet==0.18.1
+eventlet==0.*
 Flask==0.10.1
 Flask-SocketIO==2.0
 futures==3.0.3
